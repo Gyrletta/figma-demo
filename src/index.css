@@ -1,0 +1,13 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+
+code {
+  font-family: "poppins", sans-serif;
+}
