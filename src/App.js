@@ -1,40 +1,26 @@
 import React from "react";
-import { Container } from "./components/Container";
-import {
-  Tile,
-  Image,
-  Content,
-  Title,
-  Year,
-  Tags,
-  Tag,
-  Description,
-} from "./components/Tile";
-import poster from "./images/poster.png";
+import MovieList from "./pages/movie/MovieList";
+import MoviePage from "./pages/movie/MoviePage";
+import PeopleList from "./pages/people/PeopleList";
+import PeoplePage from "./pages/people/PeoplePage";
+import store from "./store";
 
 function App() {
   return (
-    <Container>
-      <Tile>
-        <Image src={poster} alt="" />
-        <Content>
-          <Title>Mulan</Title>
-          <Year>2020</Year>
-          <Tags>
-            <Tag>Action</Tag>
-            <Tag>Adventure</Tag>
-            <Tag>Drama</Tag>
-          </Tags>
-          <Description>
-            A young Chinese maiden disguises herself as a male warrior in order
-            to save her father. Disguises herself as a male warrior in order to
-            save her father. A young Chinese maiden disguises herself as a male
-            warrior in order to save her father.
-          </Description>
-        </Content>
-      </Tile>
-    </Container>
+    <Provider store={store}>
+      <SearchProvider>
+        <Router>
+          <Navigation />
+          <Routes>
+            <Route path="/" element={<MovieList />} />
+            <Route path="/movielist" element={<MovieList />} />
+            <Route path="/movie/:id" element={<MoviePage />} />
+            <Route path="/peoplelist" element={<PeopleList />} />
+            <Route path="/people/:id" element={<PeoplePage />} />
+          </Routes>
+        </Router>
+      </SearchProvider>
+    </Provider>
   );
 }
-
 export default App;
