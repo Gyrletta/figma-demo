@@ -10,6 +10,7 @@ import {
   Tag,
   Description,
 } from "../../components/Tile/index";
+import poster from "../../images/poster.png";
 
 const MoviePage = () => {
   return (
